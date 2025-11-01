@@ -41,6 +41,6 @@ typedef struct teepee_result
 } teepee_result;
 
 teepee_result *teepee(const char *url);
-void free_result(teepee_result *result);
+void free_teepee_result(teepee_result *result);
 
 #endif
