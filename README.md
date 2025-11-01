@@ -1,6 +1,6 @@
 # teepee
 
-A lightweight HTTP client for C.
+A lightweight HTTP client written in C.
 
 This project only serves as an exercise and is not meant to be used in production environments.
 
