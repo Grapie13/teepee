@@ -24,8 +24,23 @@ typedef enum teepee_error_code
   FD_FAILURE = -6,
   SSL_HANDSHAKE_FAILURE = -7,
   REQUEST_FAILURE = -8,
-  RESPONSE_ALLOCATION_FAILURE = -9
+  ALLOCATION_FAILURE = -9
 } teepee_error_code;
+
+typedef struct teepee_header
+{
+  const char *name;
+  const char *value;
+} teepee_header;
+
+typedef struct teepee_opts
+{
+  method_t method;
+  teepee_header *headers;
+  int header_size;
+  const char *data;
+  int secure;
+} teepee_opts;
 
 typedef struct teepee_error
 {
@@ -40,7 +55,7 @@ typedef struct teepee_result
   const teepee_error *error;
 } teepee_result;
 
-teepee_result *teepee(const char *url);
+teepee_result *teepee(const char *url, const teepee_opts *opts);
 void free_teepee_result(teepee_result *result);
 
 #endif
